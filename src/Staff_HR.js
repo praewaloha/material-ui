@@ -5,26 +5,24 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import { red } from '@material-ui/core/colors';
 import { green } from '@material-ui/core/colors';
-import DeleteIcon from '@material-ui/icons/Delete';
-import IconButton from '@material-ui/core/IconButton';
+// import DeleteIcon from '@material-ui/icons/Delete';
+// import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
-import EditIcon from '@material-ui/icons/Edit';
+// import EditIcon from '@material-ui/icons/Edit';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import AddIcon from '@material-ui/icons/Add';
+// import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import { Link } from '@material-ui/core';
-
-// import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-
+// import Dialog from '@material-ui/core/Dialog';
+// import DialogActions from '@material-ui/core/DialogActions';
+// import DialogContent from '@material-ui/core/DialogContent';
+// import DialogContentText from '@material-ui/core/DialogContentText';
+// import DialogTitle from '@material-ui/core/DialogTitle';
+import AddButton from './AddButton'
+import DeleteButton from './DeleteButton'
+import EditButton from './EditButton'
+// import { Link } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -35,9 +33,9 @@ const useStyles = makeStyles((theme: Theme) =>
       overflowX: 'auto',
     },
     table: {
-      width: '80%',
+      width: '87%',
       marginTop: theme.spacing(1),
-      marginLeft: theme.spacing(30),
+      marginLeft: theme.spacing(25),
     },
     iconHover: {
       margin: theme.spacing(0),
@@ -115,27 +113,28 @@ const rows = [
   createData('Firstname', 'Lastname'),
 ];
 
-export default function SimpleTable() {
+export default function Staff_HR() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
+  // const handleOpen = () => {
+  //   setOpen(true);
+  // };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
 
 
   return (
     <div className={classes.root}>
     <Box  display="flex" flexDirection="row-reverse">
-       <Button variant="contained" size="large" color="primary" className={classes.button}
+    <AddButton/>
+       {/* <Button variant="contained" size="large" color="primary" className={classes.button}
        >
         <AddIcon />
         Add New
-      </Button> 
+      </Button> */}
       <TextField
         id="outlined-search"
         label="Search..."
@@ -164,18 +163,21 @@ export default function SimpleTable() {
               <StyledTableCell>{row.lname}</StyledTableCell>
               <StyledTableCell>
                 <Tooltip title="Edit">
-                    <IconButton aria-label="edit" >
+                <EditButton/>
+                    {/* <IconButton aria-label="edit" >
                         <EditIcon />
-                    </IconButton>
+                    </IconButton> */}
                 </Tooltip>
               </StyledTableCell>
               <StyledTableCell>
                 <Tooltip title="Delete">
-                    <IconButton aria-label="delete" onClick={handleOpen}>
+                <DeleteButton/>
+                    {/* <IconButton aria-label="delete" onClick={handleOpen}>
                         <DeleteIcon />
-                    </IconButton>
+                    </IconButton> */}
                 </Tooltip>
-                <Dialog
+              </StyledTableCell>
+              {/* <Dialog
                   open={open}
                   onClose={handleClose}
                   aria-labelledby="alert-dialog-title"
@@ -196,8 +198,7 @@ export default function SimpleTable() {
                       Cancel
                     </Button>
                   </DialogActions>
-                </Dialog>
-              </StyledTableCell>
+                </Dialog> */}
             </StyledTableRow>
           ))}
         </TableBody>

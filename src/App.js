@@ -1,8 +1,16 @@
 import React, { Fragment} from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
-import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
-import { MenuList, MenuItem, AppBar, CssBaseline, Divider, Drawer, Hidden, IconButton, Toolbar, Typography, Paper } from '@material-ui/core'
+import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { MenuList, MenuItem, AppBar, CssBaseline, Divider, Drawer, Hidden, IconButton, Toolbar, Typography } from '@material-ui/core'
 import { Link } from 'react-router-dom';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import StarBorder from '@material-ui/icons/StarBorder';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Collapse from '@material-ui/core/Collapse';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 
 const drawerWidth = 240;
 
@@ -47,34 +55,44 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface ResponsiveDrawerProps {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   container?: Element;
 }
 
 export default function ResponsiveDrawer(props: ResponsiveDrawerProps) {
   const { container, children } = props;
   const classes = useStyles();
-  const theme = useTheme();
+  // const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   function handleDrawerToggle() {
     setMobileOpen(!mobileOpen);
   }
 
+  const [open, setOpen] = React.useState(true);
+
+  function handleClick() {
+    setOpen(!open);
+  }
+
+
   const drawer = (
     <div>
       <div className={classes.toolbar} />
       <Divider />
       <MenuList>
-          <MenuItem component={Link} to="/log">
-            Staff Log
+          <MenuItem component={Link} to="/report">
+            Overview
           </MenuItem>
-          <MenuItem component={Link} to="/hr">
-            Staff HR
+          <MenuItem component={Link} to="/manage">
+            User Management
           </MenuItem>
+          <MenuItem  component={Link} to="/his">
+            History Log
+          </MenuItem>
+          <MenuItem  component={Link} to="/event">
+            Event
+          </MenuItem>
+          
       </MenuList>
       <Divider />
     </div>
@@ -96,7 +114,7 @@ export default function ResponsiveDrawer(props: ResponsiveDrawerProps) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Responsive drawer
+            FACE 48
           </Typography>
         </Toolbar>
       </AppBar>

@@ -5,7 +5,6 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
 
@@ -41,9 +40,9 @@ const useStyles = makeStyles((theme: Theme) =>
       overflowX: 'auto',
     },
     table: {
-      width: '80%',
+      width: '87%',
       marginTop: theme.spacing(1),
-      marginLeft: theme.spacing(30),
+      marginLeft: theme.spacing(25),
     },
     container: {
       display: 'flex',
@@ -68,7 +67,7 @@ const rows = [
   createData('David', 15.49, 'Login'),
 ];
 
-export default function SimpleTable() {
+export default function Staff_log() {
   const classes = useStyles();
 
   return (
